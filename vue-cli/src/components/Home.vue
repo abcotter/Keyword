@@ -1,6 +1,8 @@
 <template>
   <div class="Home">
-    <navbar/>
+    <button @click="display1">1</button>
+    <button @click="display2">2</button>
+    <button @click="display3">3</button>
     <h3>
       Upload your PDF below and we'll find major keywords!<br>
     </h3>
@@ -9,14 +11,28 @@
 </template>
 
 <script>
-import navbar from './navbar.vue'
 
 export default {
   name: 'Home',
   components: {
-    navbar
+  },
+  methods: {
+    display1: function () {
+      console.log("display1")
+      this.$router.push('foo')
+    },
+
+    display2: function () {
+      console.log("display2")
+      this.$router.push('/')
+    },
+
+    display3: function () {
+      console.log("display3")
+    }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
