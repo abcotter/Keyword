@@ -1,7 +1,6 @@
 <template>
   <div class="Home">
-    <div class="nav-bar">
-    </div>
+    <navbar/>
     <h3>
       Upload your PDF below and we'll find major keywords!<br>
     </h3>
@@ -10,8 +9,13 @@
 </template>
 
 <script>
+import navbar from './navbar.vue'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    navbar
+  }
 }
 </script>
 
@@ -30,10 +34,5 @@ li {
 }
 a {
   color: #42b983;
-}
-.nav-bar {
-    background: linear-gradient(-90deg, rgb(130, 225, 231), rgb(62, 187, 174));
-    height: 60px;
-    margin-bottom: 15px;
 }
 </style>
