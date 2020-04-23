@@ -1,37 +1,27 @@
 <template>
   <div class="Home">
-    <button @click="display1">1</button>
-    <button @click="display2">2</button>
-    <button @click="display3">3</button>
     <h3>
       Upload your PDF below and we'll find major keywords!<br>
     </h3>
-    <button>Find Keywords</button>
+    <Upload @load="text = $event" ></Upload>
   </div>
 </template>
 
 <script>
+  import Upload from './Upload.vue';
 
-export default {
-  name: 'Home',
-  components: {
-  },
-  methods: {
-    display1: function () {
-      console.log("display1")
-      this.$router.push('foo')
+  export default {
+    name: 'Home',
+    components: {
+      Upload
     },
-
-    display2: function () {
-      console.log("display2")
-      this.$router.push('/')
-    },
-
-    display3: function () {
-      console.log("display3")
+    data: () => ({ text: "" }),
+    watch: {
+      text: function (newText) {
+        this.$emit('recievedData', newText)
+      }
     }
   }
-}
 
 </script>
 

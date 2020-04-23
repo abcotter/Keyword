@@ -1,20 +1,23 @@
 <template>
   <div id="app">
     <navbar/>
-    <Home/>
-    <router-view></router-view>
+    <router-view v-on:recievedData="findKeywords"></router-view>
   </div>
 </template>
 
 <script>
-import Home from './components/Home.vue'
 import navbar from './components/navbar.vue'
 
 export default {
   name: 'App',
   components: {
-    Home,
     navbar
+  },
+  methods: {
+    findKeywords: function (text) {
+      console.log(text)
+      this.$router.push({ path: 'keywords', params: {body: "text"}})
+    }
   }
 }
 </script>
